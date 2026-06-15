@@ -83,7 +83,7 @@
 </style>
 </head>
 <body>
-<script>window.DEMO_CONFIG = {"business":{"name":"Δερματολόγος Πέτσας Κωνσταντίνος","area":"Αθήνα","phone":"+30 21 1400 6853","brandColor":"#0f6fb8","logo":"Δ"},"rating":"3.9★","services":["Δερματολογικές εξετάσεις","Αντιμετώπιση ακμής","Laser & αισθητική δερματολογία","Online ραντεβού"],"reviews":[{"author":"Ασθενής Google","stars":5,"text":"Άμεση εξυπηρέτηση — έκλεισα ραντεβού μέσα σε ένα λεπτό."},{"author":"Ασθενής Google","stars":5,"text":"Μου θύμισαν το ραντεβού, δεν το ξέχασα όπως άλλες φορές."}],"chatScript":[{"from":"user","text":"Καλησπέρα, θα ήθελα ραντεβού στο Δερματολόγος Πέτσας Κωνσταντίνος."},{"from":"ai","text":"Καλησπέρα σας! 😊 Ασφαλώς. Έχω Τετάρτη 17:30 ή Πέμπτη 11:00. Τι σας βολεύει;"},{"from":"user","text":"Πέμπτη 11:00 τέλεια."},{"from":"ai","text":"Κλείστηκε ✅ Θα λάβετε υπενθύμιση σε Viber/WhatsApp 48ω & 2ω πριν. Να σας στείλω τη διεύθυνση;"},{"from":"user","text":"Ναι, ευχαριστώ!"},{"from":"ai","text":"Σας την έστειλα 📍 Καλή σας μέρα! Για αλλαγή, γράψτε μου εδώ οποιαδήποτε ώρα."}],"cta":{"label":"Θέλω demo για το ιατρείο μου","action":"#"}};</script>
+<script>window.DEMO_CONFIG = {"business":{"name":"Δερματολόγος Πέτσας Κωνσταντίνος","area":"Αθήνα","phone":"+30 21 1400 6853","brandColor":"#0f6fb8","logo":"Δ"},"rating":"3.9★","services":["Δερματολογικές εξετάσεις","Αντιμετώπιση ακμής","Laser & αισθητική δερματολογία","Online ραντεβού"],"reviews":[{"author":"Ασθενής Google","stars":5,"text":"Άμεση εξυπηρέτηση — έκλεισα ραντεβού μέσα σε ένα λεπτό."},{"author":"Ασθενής Google","stars":5,"text":"Μου θύμισαν το ραντεβού, δεν το ξέχασα όπως άλλες φορές."}],"chatScript":[{"from":"user","text":"Καλησπέρα, θα ήθελα ραντεβού στο Δερματολόγος Πέτσας Κωνσταντίνος."},{"from":"ai","text":"Καλησπέρα σας! 😊 Ασφαλώς. Έχω Τετάρτη 17:30 ή Πέμπτη 11:00. Τι σας βολεύει;"},{"from":"user","text":"Πέμπτη 11:00 τέλεια."},{"from":"ai","text":"Κλείστηκε ✅ Θα λάβετε υπενθύμιση σε Viber/WhatsApp 48ω & 2ω πριν. Να σας στείλω τη διεύθυνση;"},{"from":"user","text":"Ναι, ευχαριστώ!"},{"from":"ai","text":"Σας την έστειλα 📍 Καλή σας μέρα! Για αλλαγή, γράψτε μου εδώ οποιαδήποτε ώρα."}],"cta":{"label":"Θέλω demo για το ιατρείο μου","action":"#"},"track":"https://script.google.com/macros/s/AKfycbxnJQxzp6uE92CXwRMUkje6e9_FjXlnv2VCwil3nHFHaW6sTX1XhtC85K3yY16W6XViKQ/exec"};</script>
 
 <header><div class="wrap nav">
   <div class="logo"><span class="dot" id="logoMark">+</span><span id="brandName">Ιατρείο</span></div>
@@ -193,6 +193,8 @@ window.DEMO_CONFIG = window.DEMO_CONFIG || {
 /* ---------- render engine (κοινό, μην το πειράζεις ανά prospect) ---------- */
 (function(){
   const C = window.DEMO_CONFIG, B = C.business||{};
+  // open-tracking beacon (no-op αν δεν έχει οριστεί C.track)
+  if(C.track){try{new Image().src=C.track+(C.track.includes('?')?'&':'?')+'slug='+encodeURIComponent(B.name||'')+'&t='+Date.now();}catch(e){}}
   if(B.brandColor){const r=document.documentElement.style;r.setProperty('--brand',B.brandColor);}
   const set=(id,v)=>{const e=document.getElementById(id);if(e&&v)e.textContent=v;};
   set('brandName',B.name);set('chatName',B.name);set('navCta','Κλείσε ραντεβού');
