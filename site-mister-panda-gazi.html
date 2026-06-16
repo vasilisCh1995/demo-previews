@@ -54,6 +54,14 @@
   .band{background:var(--brand);color:#fff;border-radius:20px;padding:38px;text-align:center}
   .band h2{color:#fff}.band p{opacity:.92;margin-bottom:20px}
   .band .btn{background:#fff;color:var(--brand-d)}.band .btn.wa{background:#fff;color:#0a7d3f}
+  .menu{display:grid;grid-template-columns:1fr 1fr;gap:2px 28px}
+  .mitem{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .mitem .mn{font-weight:600}.mitem .mp{font-weight:800;color:var(--brand);white-space:nowrap}
+  .note{font-size:12px;color:var(--muted);margin-top:10px}
+  .form{display:flex;flex-direction:column;gap:10px;max-width:540px}
+  .form input,.form textarea{padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;background:#fff;width:100%}
+  .form textarea{min-height:84px;resize:vertical}
+  @media(max-width:880px){.menu{grid-template-columns:1fr}}
   footer{padding:28px 0 44px;color:var(--muted);font-size:13px;text-align:center}
   /* sticky mobile call bar */
   .callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:0;background:#fff;border-top:1px solid var(--line)}
@@ -63,7 +71,7 @@
 </style>
 </head>
 <body>
-<script>window.SITE_CONFIG = {"name":"Mister Panda Gazi","category":"Καφετέρια","area":"Αθήνα","tagline":"Ο αγαπημένος σας χώρος για καφέ στην Αθήνα.","phone":"+30 21 0346 2322","whatsapp":"302103462322","rating":"4★","reviewsCount":88,"brand":"#7a4a2b","photo":"https://lh3.googleusercontent.com/gps-cs-s/APNQkAEUWvJnOFq3VekfWc1dOH5EoG-dLWbieQ9LxqGukLo0Sq74dYt9gcAeOKXUy3nZ-f6Ae4gp-pEeP8CTH5LiLzBmzruaJ0J8uAIi_3Exr7pmxZrs16c1AFkGVP7JWoxmztt9k-aLMw=w533-h240-k-no","address":"Περσεφόνης, Ιάκχου &, Αθήνα 118 54, Ελλάδα","mapsQuery":"Περσεφόνης, Ιάκχου &, Αθήνα 118 54, Ελλάδα","services":[{"ic":"☕","t":"Καφές & ροφήματα"},{"ic":"🥐","t":"Brunch & γλυκά"},{"ic":"🍷","t":"Ποτά & cocktails"},{"ic":"🥡","t":"Take away"}],"hours":[{"day":"Τρίτη","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Τετάρτη","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Πέμπτη","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Παρασκευή","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Σάββατο","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Κυριακή","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Δευτέρα","hours":"Ανοιχτό όλο το 24ωρο"}],"reviews":[{"name":"Eheey","text":"Μου χάλασε όλη την διάθεση στο τέλος της βραδιάς. Μακάρι να μην έκανα στάση που δεν θα ξανακάνω.\nΤα υλικά σαν δείγμα και η κρέπα στο χέρι δεν τρώγετε όπως στην ","stars":1},{"name":"Eleni","text":"Μόλις παρέλαβα αλμυρή κρέπα.\nΤα υλικά ήταν σαν δείγμα μέσα στην κρέπα.\nΣαν τοστ μοιάζει όχι για κρέπα.\nΣυγγνώμη δεν νομίζω να ξανά πάρω","stars":2},{"name":"Nick","text":"Πολύ ωραίο σαντουιτς και το προσωπικό ευγενικό πολύ. Μπραβο παιδια ετσι συνεχίστε","stars":5}]};</script>
+<script>window.SITE_CONFIG = {"name":"Mister Panda Gazi","category":"Καφετέρια","area":"Αθήνα","tagline":"Ο αγαπημένος σας χώρος για καφέ στην Αθήνα.","phone":"+30 21 0346 2322","whatsapp":"302103462322","rating":"4★","reviewsCount":88,"brand":"#7a4a2b","photo":"https://lh3.googleusercontent.com/gps-cs-s/APNQkAEUWvJnOFq3VekfWc1dOH5EoG-dLWbieQ9LxqGukLo0Sq74dYt9gcAeOKXUy3nZ-f6Ae4gp-pEeP8CTH5LiLzBmzruaJ0J8uAIi_3Exr7pmxZrs16c1AFkGVP7JWoxmztt9k-aLMw=w533-h240-k-no","address":"Περσεφόνης, Ιάκχου &, Αθήνα 118 54, Ελλάδα","mapsQuery":"Περσεφόνης, Ιάκχου &, Αθήνα 118 54, Ελλάδα","services":[{"ic":"☕","t":"Καφές & ροφήματα"},{"ic":"🥐","t":"Brunch & γλυκά"},{"ic":"🍷","t":"Ποτά & cocktails"},{"ic":"🥡","t":"Take away"}],"hours":[{"day":"Τρίτη","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Τετάρτη","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Πέμπτη","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Παρασκευή","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Σάββατο","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Κυριακή","hours":"Ανοιχτό όλο το 24ωρο"},{"day":"Δευτέρα","hours":"Ανοιχτό όλο το 24ωρο"}],"reviews":[{"name":"Eheey","text":"Μου χάλασε όλη την διάθεση στο τέλος της βραδιάς. Μακάρι να μην έκανα στάση που δεν θα ξανακάνω.\nΤα υλικά σαν δείγμα και η κρέπα στο χέρι δεν τρώγετε όπως στην ","stars":1},{"name":"Eleni","text":"Μόλις παρέλαβα αλμυρή κρέπα.\nΤα υλικά ήταν σαν δείγμα μέσα στην κρέπα.\nΣαν τοστ μοιάζει όχι για κρέπα.\nΣυγγνώμη δεν νομίζω να ξανά πάρω","stars":2},{"name":"Nick","text":"Πολύ ωραίο σαντουιτς και το προσωπικό ευγενικό πολύ. Μπραβο παιδια ετσι συνεχίστε","stars":5}],"formKind":"table","formEye":"Κράτηση","formTitle":"Κλείσε τραπέζι","whenLabel":"Ημέρα, ώρα & άτομα","menuTitle":"Τιμοκατάλογος","menuEye":"Κατάλογος","menu":[{"t":"Espresso","price":"€2,00"},{"t":"Freddo espresso","price":"€3,50"},{"t":"Cappuccino","price":"€3,50"},{"t":"Φραπέ","price":"€3,00"},{"t":"Φρέσκος χυμός","price":"€4,00"},{"t":"Σνακ & γλυκά","price":"από €2,50"}]};</script>
 
 <header><div class="wrap nav">
   <div class="brand" id="brand">Επιχείρηση</div>
@@ -91,6 +99,13 @@
     <div class="grid" id="services"></div>
   </section>
 
+  <section id="menusec" style="display:none">
+    <div class="eyebrow" id="menuEye">Κατάλογος</div>
+    <h2 id="menuTitle">Μενού</h2>
+    <div class="menu" id="menu" style="margin-top:14px"></div>
+    <p class="note">Ενδεικτικός κατάλογος — προσαρμόζεται πλήρως στα δικά σας προϊόντα & τιμές.</p>
+  </section>
+
   <section>
     <div class="two">
       <div>
@@ -114,6 +129,20 @@
     <div class="eyebrow">Αξιολογήσεις</div>
     <h2>Τι λένε οι πελάτες μας</h2>
     <div class="revs" id="reviews" style="margin-top:14px"></div>
+  </section>
+
+  <section id="formsec">
+    <div class="eyebrow" id="formEye">Κράτηση</div>
+    <h2 id="formTitle">Κλείσε ραντεβού</h2>
+    <div class="panel" style="margin-top:14px">
+      <div class="form">
+        <input id="fName" placeholder="Το όνομά σας">
+        <input id="fWhen" placeholder="Ημέρα & ώρα">
+        <textarea id="fMsg" placeholder="Μήνυμα (προαιρετικό)"></textarea>
+        <button class="btn" id="fSend">Αποστολή μέσω WhatsApp</button>
+        <div class="note">Το αίτημα ανοίγει στο WhatsApp της επιχείρησης για άμεση επιβεβαίωση.</div>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -143,7 +172,9 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
   brand:"#b9533b", photo:"",
   mapsQuery:"", address:"",
   services:[{ic:"⭐",t:"Υπηρεσία"}],
-  hours:[], reviews:[]
+  hours:[], reviews:[],
+  menu:[], menuTitle:"Κατάλογος", menuEye:"Κατάλογος",
+  formKind:"message", formTitle:"Στείλε μας μήνυμα", formEye:"Επικοινωνία", whenLabel:"Ημέρα & ώρα"
 };
 (function(){
   const C=window.SITE_CONFIG, r=document.documentElement.style;
@@ -180,6 +211,28 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
   if((C.reviews||[]).length){C.reviews.forEach(x=>{const d=document.createElement('div');d.className='rev';
     d.innerHTML='<div class="st">'+'★'.repeat(x.stars||5)+'</div><p>"'+x.text+'"</p><b>— '+(x.name||'Πελάτης')+'</b>';rv.appendChild(d);});}
   else{document.getElementById('revsec').style.display='none';}
+  // menu / τιμοκατάλογος
+  if((C.menu||[]).length){
+    document.getElementById('menusec').style.display='';
+    set('menuTitle',C.menuTitle);set('menuEye',C.menuEye||C.menuTitle);
+    const mn=document.getElementById('menu');
+    C.menu.forEach(m=>{const d=document.createElement('div');d.className='mitem';
+      d.innerHTML='<span class="mn">'+m.t+'</span><span class="mp">'+(m.price||'')+'</span>';mn.appendChild(d);});
+  }
+  // booking / contact form → WhatsApp στην επιχείρηση
+  set('formTitle',C.formTitle);set('formEye',C.formEye);
+  const fWhen=document.getElementById('fWhen');
+  if(C.formKind==='message'){fWhen.style.display='none';}else if(C.whenLabel){fWhen.placeholder=C.whenLabel;}
+  document.getElementById('fSend').addEventListener('click',()=>{
+    const n=document.getElementById('fName').value.trim();
+    const w=document.getElementById('fWhen').value.trim();
+    const m=document.getElementById('fMsg').value.trim();
+    const lines=[(C.formTitle||'Αίτημα')+' — '+C.name];
+    if(n)lines.push('Όνομα: '+n);
+    if(w&&C.formKind!=='message')lines.push((C.whenLabel||'Πότε')+': '+w);
+    if(m)lines.push('Μήνυμα: '+m);
+    location.href='https://wa.me/'+wa+'?text='+encodeURIComponent(lines.join('\n'));
+  });
 })();
 </script>
 </body>

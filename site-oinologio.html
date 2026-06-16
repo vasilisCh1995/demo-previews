@@ -54,6 +54,14 @@
   .band{background:var(--brand);color:#fff;border-radius:20px;padding:38px;text-align:center}
   .band h2{color:#fff}.band p{opacity:.92;margin-bottom:20px}
   .band .btn{background:#fff;color:var(--brand-d)}.band .btn.wa{background:#fff;color:#0a7d3f}
+  .menu{display:grid;grid-template-columns:1fr 1fr;gap:2px 28px}
+  .mitem{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .mitem .mn{font-weight:600}.mitem .mp{font-weight:800;color:var(--brand);white-space:nowrap}
+  .note{font-size:12px;color:var(--muted);margin-top:10px}
+  .form{display:flex;flex-direction:column;gap:10px;max-width:540px}
+  .form input,.form textarea{padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;background:#fff;width:100%}
+  .form textarea{min-height:84px;resize:vertical}
+  @media(max-width:880px){.menu{grid-template-columns:1fr}}
   footer{padding:28px 0 44px;color:var(--muted);font-size:13px;text-align:center}
   /* sticky mobile call bar */
   .callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:0;background:#fff;border-top:1px solid var(--line)}
@@ -63,7 +71,7 @@
 </style>
 </head>
 <body>
-<script>window.SITE_CONFIG = {"name":"ΟΙΝΟΛΟΓΙΟ","category":"Κάβα","area":"Ζωγράφου","tagline":"Καλώς ήρθατε — βρείτε μας στην Ζωγράφου.","phone":"+30 21 0748 8012","whatsapp":"302107488012","rating":"4,9★","reviewsCount":28,"brand":"#b9533b","photo":"https://lh3.googleusercontent.com/gps-cs-s/APNQkAHCYDc1muApHaQxXcNpoJxRAdICUw2yKVvcOoCt5WIfSjf735efXlgWH0qoS6vTFFOzYfr-rOV1X195Y-hhoMBm-1JktSFCZpIfSQaWpbP3SzgeZn085hDSQpKGiFQz3OUxiwTCXg=w408-h544-k-no","address":"Ιάσονα Μαράτου 12, Ζωγράφου 157 72, Ελλάδα","mapsQuery":"Ιάσονα Μαράτου 12, Ζωγράφου 157 72, Ελλάδα","services":[{"ic":"⭐","t":"Ποιοτικές υπηρεσίες"},{"ic":"📞","t":"Άμεση εξυπηρέτηση"},{"ic":"📍","t":"Στην περιοχή σας"},{"ic":"😊","t":"Ευχαριστημένοι πελάτες"}],"hours":[{"day":"Τρίτη","hours":"10:00 π.μ. to 2:00 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Τετάρτη","hours":"10:00 π.μ. to 2:30 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Πέμπτη","hours":"10:00 π.μ. to 2:00 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Παρασκευή","hours":"10:00 π.μ. to 2:00 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Σάββατο","hours":"10:00 π.μ. to 3:00 μ.μ., 5:30 to 9:30 μ.μ."},{"day":"Κυριακή","hours":"Κλειστά"},{"day":"Δευτέρα","hours":"10:00 π.μ. to 2:30 μ.μ., 6:00 to 10:00 μ.μ."}],"reviews":[{"name":"αθηνα","text":"Φοβερή κάβα με ποικιλία προιόντων διαλεγμένα με μεράκι και πολλή αγαπη! Αυτό φαίνεται και απο την εξυπηρέτηση της γλυκιας Ελένης, πάντα πρόθυμη να ανακαλυψετε π","stars":5},{"name":"Iris","text":"Η κάβα της γειτονιάς μας και της καρδιάς μας!\nΜεγάλη ποικιλία οίνων, εξαιρετικό τσίπουρο Τυρνάβου και ενδιαφέρουσες επιλογές ξηρών καρπών. Η κοπέλα ευγενέστατη,","stars":5},{"name":"Δημ","text":"Είχε ποικιλία ποτών σε διάφορες τιμές. Πολύ ευγενικοί.","stars":5}]};</script>
+<script>window.SITE_CONFIG = {"name":"ΟΙΝΟΛΟΓΙΟ","category":"Κάβα","area":"Ζωγράφου","tagline":"Το μίνι μάρκετ της γειτονιάς στην Ζωγράφου.","phone":"+30 21 0748 8012","whatsapp":"302107488012","rating":"4,9★","reviewsCount":28,"brand":"#2e7d32","photo":"https://lh3.googleusercontent.com/gps-cs-s/APNQkAHCYDc1muApHaQxXcNpoJxRAdICUw2yKVvcOoCt5WIfSjf735efXlgWH0qoS6vTFFOzYfr-rOV1X195Y-hhoMBm-1JktSFCZpIfSQaWpbP3SzgeZn085hDSQpKGiFQz3OUxiwTCXg=w408-h544-k-no","address":"Ιάσονα Μαράτου 12, Ζωγράφου 157 72, Ελλάδα","mapsQuery":"Ιάσονα Μαράτου 12, Ζωγράφου 157 72, Ελλάδα","services":[{"ic":"🛒","t":"Τρόφιμα & είδη"},{"ic":"🥖","t":"Φρέσκα προϊόντα"},{"ic":"🚚","t":"Διανομή κατ' οίκον"},{"ic":"🕐","t":"Ανοιχτά καθημερινά"}],"hours":[{"day":"Τρίτη","hours":"10:00 π.μ. to 2:00 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Τετάρτη","hours":"10:00 π.μ. to 2:30 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Πέμπτη","hours":"10:00 π.μ. to 2:00 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Παρασκευή","hours":"10:00 π.μ. to 2:00 μ.μ., 6:00 to 10:00 μ.μ."},{"day":"Σάββατο","hours":"10:00 π.μ. to 3:00 μ.μ., 5:30 to 9:30 μ.μ."},{"day":"Κυριακή","hours":"Κλειστά"},{"day":"Δευτέρα","hours":"10:00 π.μ. to 2:30 μ.μ., 6:00 to 10:00 μ.μ."}],"reviews":[{"name":"αθηνα","text":"Φοβερή κάβα με ποικιλία προιόντων διαλεγμένα με μεράκι και πολλή αγαπη! Αυτό φαίνεται και απο την εξυπηρέτηση της γλυκιας Ελένης, πάντα πρόθυμη να ανακαλυψετε π","stars":5},{"name":"Iris","text":"Η κάβα της γειτονιάς μας και της καρδιάς μας!\nΜεγάλη ποικιλία οίνων, εξαιρετικό τσίπουρο Τυρνάβου και ενδιαφέρουσες επιλογές ξηρών καρπών. Η κοπέλα ευγενέστατη,","stars":5},{"name":"Δημ","text":"Είχε ποικιλία ποτών σε διάφορες τιμές. Πολύ ευγενικοί.","stars":5}],"formKind":"message","formEye":"Επικοινωνία","formTitle":"Στείλε μας μήνυμα","whenLabel":"","menu":[]};</script>
 
 <header><div class="wrap nav">
   <div class="brand" id="brand">Επιχείρηση</div>
@@ -91,6 +99,13 @@
     <div class="grid" id="services"></div>
   </section>
 
+  <section id="menusec" style="display:none">
+    <div class="eyebrow" id="menuEye">Κατάλογος</div>
+    <h2 id="menuTitle">Μενού</h2>
+    <div class="menu" id="menu" style="margin-top:14px"></div>
+    <p class="note">Ενδεικτικός κατάλογος — προσαρμόζεται πλήρως στα δικά σας προϊόντα & τιμές.</p>
+  </section>
+
   <section>
     <div class="two">
       <div>
@@ -114,6 +129,20 @@
     <div class="eyebrow">Αξιολογήσεις</div>
     <h2>Τι λένε οι πελάτες μας</h2>
     <div class="revs" id="reviews" style="margin-top:14px"></div>
+  </section>
+
+  <section id="formsec">
+    <div class="eyebrow" id="formEye">Κράτηση</div>
+    <h2 id="formTitle">Κλείσε ραντεβού</h2>
+    <div class="panel" style="margin-top:14px">
+      <div class="form">
+        <input id="fName" placeholder="Το όνομά σας">
+        <input id="fWhen" placeholder="Ημέρα & ώρα">
+        <textarea id="fMsg" placeholder="Μήνυμα (προαιρετικό)"></textarea>
+        <button class="btn" id="fSend">Αποστολή μέσω WhatsApp</button>
+        <div class="note">Το αίτημα ανοίγει στο WhatsApp της επιχείρησης για άμεση επιβεβαίωση.</div>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -143,7 +172,9 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
   brand:"#b9533b", photo:"",
   mapsQuery:"", address:"",
   services:[{ic:"⭐",t:"Υπηρεσία"}],
-  hours:[], reviews:[]
+  hours:[], reviews:[],
+  menu:[], menuTitle:"Κατάλογος", menuEye:"Κατάλογος",
+  formKind:"message", formTitle:"Στείλε μας μήνυμα", formEye:"Επικοινωνία", whenLabel:"Ημέρα & ώρα"
 };
 (function(){
   const C=window.SITE_CONFIG, r=document.documentElement.style;
@@ -180,6 +211,28 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
   if((C.reviews||[]).length){C.reviews.forEach(x=>{const d=document.createElement('div');d.className='rev';
     d.innerHTML='<div class="st">'+'★'.repeat(x.stars||5)+'</div><p>"'+x.text+'"</p><b>— '+(x.name||'Πελάτης')+'</b>';rv.appendChild(d);});}
   else{document.getElementById('revsec').style.display='none';}
+  // menu / τιμοκατάλογος
+  if((C.menu||[]).length){
+    document.getElementById('menusec').style.display='';
+    set('menuTitle',C.menuTitle);set('menuEye',C.menuEye||C.menuTitle);
+    const mn=document.getElementById('menu');
+    C.menu.forEach(m=>{const d=document.createElement('div');d.className='mitem';
+      d.innerHTML='<span class="mn">'+m.t+'</span><span class="mp">'+(m.price||'')+'</span>';mn.appendChild(d);});
+  }
+  // booking / contact form → WhatsApp στην επιχείρηση
+  set('formTitle',C.formTitle);set('formEye',C.formEye);
+  const fWhen=document.getElementById('fWhen');
+  if(C.formKind==='message'){fWhen.style.display='none';}else if(C.whenLabel){fWhen.placeholder=C.whenLabel;}
+  document.getElementById('fSend').addEventListener('click',()=>{
+    const n=document.getElementById('fName').value.trim();
+    const w=document.getElementById('fWhen').value.trim();
+    const m=document.getElementById('fMsg').value.trim();
+    const lines=[(C.formTitle||'Αίτημα')+' — '+C.name];
+    if(n)lines.push('Όνομα: '+n);
+    if(w&&C.formKind!=='message')lines.push((C.whenLabel||'Πότε')+': '+w);
+    if(m)lines.push('Μήνυμα: '+m);
+    location.href='https://wa.me/'+wa+'?text='+encodeURIComponent(lines.join('\n'));
+  });
 })();
 </script>
 </body>
