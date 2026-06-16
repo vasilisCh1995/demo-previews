@@ -4,160 +4,201 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Επαγγελματική σελίδα</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{ --brand:#b9533b; --brand-d:#8f3c29; --ink:#1a1410; --muted:#6b6258; --bg:#fbf7f2; --card:#fff; --line:#ece3d8; --ok:#16a34a; }
+  :root{ --brand:#b9533b; --ink:#13110f; --muted:#73695f; --bg:#0d0b0a; --line:rgba(255,255,255,.10); --ok:#34d399; }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  body{font-family:'Inter',-apple-system,Segoe UI,Roboto,sans-serif;color:#f4efe9;background:var(--bg);line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.brand{font-family:'Sora',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
   a{color:inherit;text-decoration:none}
-  header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{font-weight:800;font-size:18px;letter-spacing:-.3px}
-  .btn{background:var(--brand);color:#fff;border:0;padding:11px 18px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;display:inline-block}
-  .btn:hover{background:var(--brand-d)}
-  .btn.wa{background:#25d366}.btn.ghost{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+  .grad{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 55%,#ff3d81));-webkit-background-clip:text;background-clip:text;color:transparent}
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+  header.scrolled{background:rgba(13,11,10,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-weight:800;font-size:19px}
+  .btn{position:relative;border:0;border-radius:999px;padding:13px 22px;font-weight:700;font-size:14px;font-family:'Sora';cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.25s;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 60%,#ff3d81));color:#fff;box-shadow:0 8px 30px -8px color-mix(in srgb,var(--brand) 70%,transparent)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px -8px color-mix(in srgb,var(--brand) 80%,transparent)}
+  .btn.wa{background:#25d366;color:#04210f}.btn.wa:hover{transform:translateY(-2px)}
+  .btn.glass{background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--line);backdrop-filter:blur(6px)}.btn.glass:hover{background:rgba(255,255,255,.16)}
   /* hero */
-  .hero{position:relative;min-height:74vh;display:flex;align-items:center;color:#fff;background:#222 center/cover no-repeat}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.65))}
-  .hero .inner{position:relative;z-index:2;padding:60px 0}
-  .hero .cat{text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:700;opacity:.9}
-  .hero h1{font-size:46px;line-height:1.05;letter-spacing:-1px;margin:10px 0 12px;max-width:720px}
-  .hero .sub{font-size:18px;opacity:.95;max-width:560px;margin-bottom:14px}
-  .stars{color:#ffd24a;font-size:16px;letter-spacing:2px;margin-bottom:22px}
-  .stars span{color:#fff;opacity:.85;font-size:13px;letter-spacing:0;margin-left:6px}
-  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
-  .hero .btn{padding:14px 22px;font-size:15px}
-  section{padding:54px 0}
-  h2{font-size:28px;letter-spacing:-.5px;margin-bottom:8px}
-  .eyebrow{color:var(--brand);font-weight:800;font-size:13px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
-  .lead{color:var(--muted);max-width:600px;margin-bottom:28px}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .svc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-  .svc .ic{width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--brand) 14%,#fff);color:var(--brand);display:grid;place-items:center;font-size:19px;margin-bottom:11px}
-  .svc h3{font-size:15.5px}
-  /* hours + contact */
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
-  .hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
-  .hrow:last-child{border:0}
-  .hrow b{font-weight:700}
-  .contact-line{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px}
-  .map{width:100%;height:300px;border:0;border-radius:16px;margin-top:6px}
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;background:#1a1512 center/cover no-repeat;transform:scale(1.08);animation:kb 18s ease-out infinite alternate}
+  @keyframes kb{to{transform:scale(1.18) translateY(-10px)}}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 15% 20%,transparent,rgba(13,11,10,.55) 55%,rgba(13,11,10,.95)),linear-gradient(0deg,var(--bg),transparent 45%)}
+  .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;z-index:1}
+  .blob.a{width:380px;height:380px;background:var(--brand);top:-80px;right:-60px;animation:fl 12s ease-in-out infinite}
+  .blob.b{width:300px;height:300px;background:color-mix(in srgb,var(--brand) 50%,#5b8cff);bottom:-60px;left:-40px;animation:fl 14s ease-in-out infinite reverse}
+  @keyframes fl{50%{transform:translate(20px,30px)}}
+  .hero .inner{position:relative;z-index:3;padding:120px 0 70px;width:100%}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid var(--line);backdrop-filter:blur(8px);padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:600;margin-bottom:22px}
+  .chip .d{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 12px var(--ok)}
+  .hero h1{font-size:clamp(38px,7vw,72px);font-weight:800;line-height:1.02;margin-bottom:18px;max-width:14ch}
+  .hero .sub{font-size:clamp(16px,2.2vw,20px);color:#d7cec4;max-width:48ch;margin-bottom:30px}
+  .cta{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+  .hstats{display:flex;gap:34px;margin-top:42px;flex-wrap:wrap}
+  .hstats .n{font-family:'Sora';font-weight:800;font-size:30px}
+  .hstats .l{font-size:12.5px;color:#b3a99e;letter-spacing:.04em}
+  .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;font-size:12px;color:#b3a99e;opacity:.8;animation:bob 1.8s infinite}
+  @keyframes bob{50%{transform:translate(-50%,8px)}}
+  /* sections */
+  section{position:relative;padding:96px 0}
+  .light{background:#fbf8f4;color:var(--ink)}
+  .light .muted{color:#7a7066}
+  .eyebrow{font-family:'Sora';font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:12px}
+  h2{font-size:clamp(28px,4.2vw,42px);font-weight:800;line-height:1.08;margin-bottom:14px}
+  .lead{font-size:17px;max-width:54ch;margin-bottom:40px}
+  .light .lead{color:#7a7066}
+  .reveal{opacity:0;transform:translateY(28px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .svc{background:#fff;border:1px solid #efe7dc;border-radius:22px;padding:26px;transition:.3s}
+  .svc:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(0,0,0,.4)}
+  .svc .ic{width:50px;height:50px;border-radius:15px;background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 55%,#ff3d81));display:grid;place-items:center;font-size:23px;margin-bottom:16px;box-shadow:0 10px 24px -10px color-mix(in srgb,var(--brand) 80%,transparent)}
+  .svc h3{font-size:17px;color:var(--ink)}
+  /* menu */
+  .menu{display:grid;grid-template-columns:1fr 1fr;gap:2px 40px}
+  .mitem{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid #efe7dc}
+  .mitem .mn{font-weight:600;font-family:'Sora';white-space:nowrap}
+  .mitem .dots{flex:1;border-bottom:1px dotted #cdbfae;transform:translateY(-4px)}
+  .mitem .mp{font-weight:800;color:var(--brand);font-family:'Sora'}
+  .note{font-size:12.5px;color:#9a8f82;margin-top:16px}
+  /* two: hours + contact */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+  .panel{background:#fff;border:1px solid #efe7dc;border-radius:24px;padding:28px;box-shadow:0 20px 50px -34px rgba(0,0,0,.3)}
+  .hrow{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #f0e8dd;font-size:14.5px}
+  .hrow:last-child{border:0}.hrow b{font-family:'Sora';font-weight:600}
+  .cline{display:flex;align-items:center;gap:11px;padding:9px 0;font-size:15px}
+  .map{width:100%;height:300px;border:0;border-radius:18px;margin-top:8px;filter:grayscale(.2)}
   /* reviews */
-  .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .rev{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-  .rev .st{color:#ffb400;font-size:13px;letter-spacing:2px}
-  .rev p{font-size:14px;margin:7px 0 10px;color:#2c2620}
-  .rev b{font-size:13px;color:var(--muted)}
-  /* cta band */
-  .band{background:var(--brand);color:#fff;border-radius:20px;padding:38px;text-align:center}
-  .band h2{color:#fff}.band p{opacity:.92;margin-bottom:20px}
-  .band .btn{background:#fff;color:var(--brand-d)}.band .btn.wa{background:#fff;color:#0a7d3f}
-  .menu{display:grid;grid-template-columns:1fr 1fr;gap:2px 28px}
-  .mitem{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
-  .mitem .mn{font-weight:600}.mitem .mp{font-weight:800;color:var(--brand);white-space:nowrap}
-  .note{font-size:12px;color:var(--muted);margin-top:10px}
-  .form{display:flex;flex-direction:column;gap:10px;max-width:540px}
-  .form input,.form textarea{padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;background:#fff;width:100%}
-  .form textarea{min-height:84px;resize:vertical}
-  @media(max-width:880px){.menu{grid-template-columns:1fr}}
-  footer{padding:28px 0 44px;color:var(--muted);font-size:13px;text-align:center}
-  /* sticky mobile call bar */
-  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:0;background:#fff;border-top:1px solid var(--line)}
-  .callbar a{flex:1;text-align:center;padding:14px;font-weight:800;font-size:15px}
-  .callbar .c{background:var(--brand);color:#fff}.callbar .w{background:#25d366;color:#fff}
-  @media(max-width:880px){.grid{grid-template-columns:1fr 1fr}.revs{grid-template-columns:1fr}.two{grid-template-columns:1fr}.hero h1{font-size:34px}.callbar{display:flex}body{padding-bottom:52px}.nav .btn{display:none}}
+  .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .rev{background:#fff;border:1px solid #efe7dc;border-radius:22px;padding:24px;position:relative}
+  .rev::before{content:"“";position:absolute;top:6px;right:20px;font-family:Georgia;font-size:70px;color:color-mix(in srgb,var(--brand) 22%,#fff);line-height:1}
+  .rev .st{color:#ffb400;font-size:14px;letter-spacing:2px}
+  .rev p{font-size:14.5px;margin:10px 0 12px;color:#3a342e;position:relative;z-index:1}
+  .rev b{font-size:13px;color:#9a8f82;font-family:'Sora'}
+  /* form */
+  .form{display:flex;flex-direction:column;gap:12px;max-width:560px}
+  .form input,.form textarea{padding:15px 17px;border:1px solid #e7ddd0;border-radius:14px;font-size:15px;font-family:inherit;background:#fff}
+  .form input:focus,.form textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 14%,transparent)}
+  .form textarea{min-height:96px;resize:vertical}
+  /* CTA band */
+  .band{position:relative;overflow:hidden;border-radius:32px;padding:64px 40px;text-align:center;background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 50%,#1a1130))}
+  .band .blob{opacity:.35}
+  .band h2{position:relative;z-index:2}.band p{position:relative;z-index:2;opacity:.92;margin-bottom:26px;font-size:17px}
+  .band .row{position:relative;z-index:2;display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+  .band .btn.primary{background:#fff;color:var(--brand)}.band .btn.wa{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)}
+  footer{padding:36px 0 120px;color:#8a8076;font-size:13px;text-align:center;background:#fbf8f4}
+  .madeby{margin-top:6px;font-size:11.5px;opacity:.7}
+  /* sticky mobile bar */
+  .callbar{position:fixed;left:14px;right:14px;bottom:14px;z-index:60;display:none;gap:10px}
+  .callbar a{flex:1;text-align:center;padding:15px;font-weight:800;font-family:'Sora';border-radius:16px;font-size:15px;box-shadow:0 14px 34px -12px rgba(0,0,0,.5)}
+  .callbar .c{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 55%,#ff3d81));color:#fff}.callbar .w{background:#25d366;color:#04210f}
+  @media(max-width:880px){.grid{grid-template-columns:1fr 1fr}.menu,.revs,.two{grid-template-columns:1fr}.callbar{display:flex}body{padding-bottom:70px}.nav .btn{display:none}.hstats{gap:24px}}
 </style>
 </head>
 <body>
 <script>window.SITE_CONFIG = {"name":"Irene's House of Pizza","category":"Πιτσαρία","area":"Αθήνα","tagline":"Καλώς ήρθατε — βρείτε μας στην Αθήνα.","phone":"+30 21 0330 2200","whatsapp":"302103302200","rating":"3,8★","reviewsCount":203,"brand":"#b9533b","photo":"https://lh3.googleusercontent.com/gps-cs-s/APNQkAHNxADp3OAFoCjxCAYd-ri2diLr4xqiG_wiMuZvGLEpNaoQw1VYB63so-l4KEdcm9mdCEzkv0d2rm1inBG9imGdUwu4X5lKiFXTDec5gJd95hct6OCozXIh5tVCIsMAVsfMD_jA=w408-h272-k-no","address":"Σπυρίδωνος Τρικούπη 1, Αθήνα 106 83, Ελλάδα","mapsQuery":"Σπυρίδωνος Τρικούπη 1, Αθήνα 106 83, Ελλάδα","services":[{"ic":"⭐","t":"Ποιοτικές υπηρεσίες"},{"ic":"📞","t":"Άμεση εξυπηρέτηση"},{"ic":"📍","t":"Στην περιοχή σας"},{"ic":"😊","t":"Ευχαριστημένοι πελάτες"}],"hours":[{"day":"Τρίτη","hours":"12:00 to 7:00 π.μ., 1:00 μ.μ. to 12:00 π.μ."},{"day":"Τετάρτη","hours":"12:00 to 7:00 π.μ., 1:00 μ.μ. to 12:00 π.μ."},{"day":"Πέμπτη","hours":"12:00 to 7:00 π.μ., 1:00 μ.μ. to 12:00 π.μ."},{"day":"Παρασκευή","hours":"12:00 to 7:00 π.μ., 1:00 μ.μ. to 12:00 π.μ."},{"day":"Σάββατο","hours":"12:00 to 7:00 π.μ., 1:00 μ.μ. to 12:00 π.μ."},{"day":"Κυριακή","hours":"12:00 to 7:00 π.μ., 1:00 μ.μ. to 12:00 π.μ."},{"day":"Δευτέρα","hours":"12:00 to 7:00 π.μ., 1:00 μ.μ. to 12:00 π.μ."}],"reviews":[{"name":"Αλεξανδρος","text":"Ο,τι χειρότερο. Καμία προσπάθεια να είναι καλή, πλήρη αδιαφορία. Καθόλου υλικά, μόνο κάποια στο κέντρο, οπου και πάλι ειναι λίγα.  πλήρως άγευστη και ήρθε και κ","stars":1},{"name":"IOANNIS","text":"Σήμερα παρέλαβα από το συγκεκριμένο κατάστημα.\nΗ πίτσα ήταν κρύα και ήρθε μετά από κάνα δίωρο.\nΚαταλαβαίνω ότι συνεργάζονται με πλατφόρμα άρα δεν φταίνε για τον","stars":1},{"name":"planet","text":"Από τις καλύτερες πίτσες και μακαρονάδες πλέον στο κέντρο! Ότι καλύτερο φρέσκα υλικά μένουμε κάθε φορά πολύ ευχαριστημένοι ! Και από όσο έμαθα έχει αλλάξει το μ","stars":5}],"formKind":"message","formEye":"Επικοινωνία","formTitle":"Στείλε μας μήνυμα","whenLabel":"","menu":[]};</script>
 
-<header><div class="wrap nav">
+<header id="hdr"><div class="wrap nav">
   <div class="brand" id="brand">Επιχείρηση</div>
-  <a class="btn" id="navCall" href="#">📞 Κλήση</a>
+  <a class="btn primary" id="navCall" href="#">📞 Κλήση</a>
 </div></header>
 
-<section class="hero" id="hero">
+<section class="hero">
+  <div class="bg" id="heroBg"></div>
+  <div class="blob a"></div><div class="blob b"></div>
   <div class="wrap inner">
-    <div class="cat" id="heroCat">Κατηγορία</div>
+    <div class="chip"><span class="d"></span><span id="heroCat">Κατηγορία</span></div>
     <h1 id="heroName">Η επιχείρησή σας</h1>
-    <div class="sub" id="heroSub"></div>
-    <div class="stars" id="heroStars"></div>
+    <p class="sub" id="heroSub"></p>
     <div class="cta">
-      <a class="btn" id="heroCall" href="#">📞 Κάλεσέ μας</a>
+      <a class="btn primary" id="heroCall" href="#">📞 Κάλεσέ μας</a>
       <a class="btn wa" id="heroWa" href="#">WhatsApp</a>
-      <a class="btn ghost" id="heroDir" href="#">Οδηγίες</a>
+      <a class="btn glass" id="heroDir" href="#">📍 Οδηγίες</a>
+    </div>
+    <div class="hstats" id="hstats"></div>
+  </div>
+  <div class="scrolldown">↓ scroll</div>
+</section>
+
+<section class="light" id="how">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Τι προσφέρουμε</div><h2>Όλα όσα χρειάζεστε, <span class="grad">σε ένα μέρος</span></h2></div>
+    <div class="grid" id="services" style="margin-top:34px"></div>
+  </div>
+</section>
+
+<section class="light" id="menusec" style="display:none;padding-top:0">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow" id="menuEye">Κατάλογος</div><h2 id="menuTitle">Μενού</h2></div>
+    <div class="menu reveal" id="menu" style="margin-top:24px"></div>
+    <p class="note">Ενδεικτικός κατάλογος — προσαρμόζεται πλήρως στα δικά σας προϊόντα & τιμές.</p>
+  </div>
+</section>
+
+<section class="light" style="padding-top:0">
+  <div class="wrap two">
+    <div class="reveal">
+      <div class="eyebrow">Ωράριο</div><h2>Ώρες λειτουργίας</h2>
+      <div class="panel" id="hours" style="margin-top:18px"></div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">Πού θα μας βρείτε</div><h2>Επικοινωνία</h2>
+      <div class="panel" style="margin-top:18px">
+        <div class="cline" id="cAddr">📍 <span></span></div>
+        <div class="cline" id="cPhone">📞 <span></span></div>
+        <iframe class="map" id="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="wrap">
-  <section id="svc">
-    <div class="eyebrow">Υπηρεσίες</div>
-    <h2 id="svcTitle">Τι προσφέρουμε</h2>
-    <div class="grid" id="services"></div>
-  </section>
+<section class="light" id="revsec" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Αξιολογήσεις</div><h2>Τι λένε οι πελάτες μας</h2></div>
+    <div class="revs reveal" id="reviews" style="margin-top:30px"></div>
+  </div>
+</section>
 
-  <section id="menusec" style="display:none">
-    <div class="eyebrow" id="menuEye">Κατάλογος</div>
-    <h2 id="menuTitle">Μενού</h2>
-    <div class="menu" id="menu" style="margin-top:14px"></div>
-    <p class="note">Ενδεικτικός κατάλογος — προσαρμόζεται πλήρως στα δικά σας προϊόντα & τιμές.</p>
-  </section>
-
-  <section>
-    <div class="two">
-      <div>
-        <div class="eyebrow">Ωράριο</div>
-        <h2>Ώρες λειτουργίας</h2>
-        <div class="panel" id="hours" style="margin-top:14px"></div>
-      </div>
-      <div>
-        <div class="eyebrow">Πού θα μας βρείτε</div>
-        <h2>Επικοινωνία</h2>
-        <div class="panel" style="margin-top:14px">
-          <div class="contact-line" id="cAddr">📍 <span></span></div>
-          <div class="contact-line" id="cPhone">📞 <span></span></div>
-          <iframe class="map" id="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="revsec">
-    <div class="eyebrow">Αξιολογήσεις</div>
-    <h2>Τι λένε οι πελάτες μας</h2>
-    <div class="revs" id="reviews" style="margin-top:14px"></div>
-  </section>
-
-  <section id="formsec">
-    <div class="eyebrow" id="formEye">Κράτηση</div>
-    <h2 id="formTitle">Κλείσε ραντεβού</h2>
-    <div class="panel" style="margin-top:14px">
+<section class="light" id="formsec" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow" id="formEye">Κράτηση</div><h2 id="formTitle">Κλείσε ραντεβού</h2></div>
+    <div class="panel reveal" style="margin-top:18px">
       <div class="form">
         <input id="fName" placeholder="Το όνομά σας">
         <input id="fWhen" placeholder="Ημέρα & ώρα">
         <textarea id="fMsg" placeholder="Μήνυμα (προαιρετικό)"></textarea>
-        <button class="btn" id="fSend">Αποστολή μέσω WhatsApp</button>
+        <button class="btn primary" id="fSend" style="justify-content:center">Αποστολή μέσω WhatsApp</button>
         <div class="note">Το αίτημα ανοίγει στο WhatsApp της επιχείρησης για άμεση επιβεβαίωση.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="band">
-      <h2 id="bandName">Κλείσε ή ρώτησέ μας τώρα</h2>
-      <p>Είμαστε εδώ για εσένα — ένα κλικ μακριά.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a class="btn" id="bandCall" href="#">📞 Κάλεσέ μας</a>
+<section class="light" style="padding-top:0">
+  <div class="wrap">
+    <div class="band reveal">
+      <div class="blob a"></div>
+      <h2 id="bandName">Έτοιμοι να σας εξυπηρετήσουμε</h2>
+      <p>Ένα κλικ μακριά — καλέστε ή γράψτε μας τώρα.</p>
+      <div class="row">
+        <a class="btn primary" id="bandCall" href="#">📞 Κάλεσέ μας</a>
         <a class="btn wa" id="bandWa" href="#">WhatsApp</a>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
-<footer class="wrap"><span id="footName">Επιχείρηση</span> · <span id="footArea"></span> · <span id="footPhone"></span></footer>
+<footer>
+  <div class="wrap"><span id="footName">Επιχείρηση</span> · <span id="footArea"></span> · <span id="footPhone"></span>
+  <div class="madeby">Φτιαγμένο με ❤ για την επιχείρησή σας</div></div>
+</footer>
 
 <div class="callbar">
   <a class="c" id="barCall" href="#">📞 Κλήση</a>
@@ -169,17 +210,15 @@
 window.SITE_CONFIG = window.SITE_CONFIG || {
   name:"Η επιχείρησή σας", category:"Κατηγορία", area:"Αθήνα",
   tagline:"Καλώς ήρθατε.", phone:"", whatsapp:"", rating:"", reviewsCount:"",
-  brand:"#b9533b", photo:"",
-  mapsQuery:"", address:"",
-  services:[{ic:"⭐",t:"Υπηρεσία"}],
-  hours:[], reviews:[],
+  brand:"#b9533b", photo:"", mapsQuery:"", address:"",
+  services:[{ic:"⭐",t:"Υπηρεσία"}], hours:[], reviews:[],
   menu:[], menuTitle:"Κατάλογος", menuEye:"Κατάλογος",
   formKind:"message", formTitle:"Στείλε μας μήνυμα", formEye:"Επικοινωνία", whenLabel:"Ημέρα & ώρα"
 };
 (function(){
-  const C=window.SITE_CONFIG, r=document.documentElement.style;
-  if(C.brand){r.setProperty('--brand',C.brand);}
-  const digits=(C.phone||'').replace(/\D/g,''); const wa=(C.whatsapp||C.phone||'').replace(/\D/g,'');
+  const C=window.SITE_CONFIG;
+  if(C.brand)document.documentElement.style.setProperty('--brand',C.brand);
+  const wa=(C.whatsapp||C.phone||'').replace(/\D/g,'');
   const tel='tel:'+(C.phone||'').replace(/\s/g,'');
   const waurl='https://wa.me/'+wa;
   const dir='https://www.google.com/maps?q='+encodeURIComponent(C.mapsQuery||C.name+' '+C.area);
@@ -187,52 +226,54 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
   const href=(id,h)=>{const e=document.getElementById(id);if(e)e.href=h;};
   document.title=C.name+' — '+C.area;
   set('brand',C.name);set('heroName',C.name);set('heroCat',(C.category||'')+(C.area?' · '+C.area:''));
-  set('heroSub',C.tagline);set('bandName',C.name);set('footName',C.name);set('footArea',C.area);set('footPhone',C.phone);
-  set('svcTitle','Τι προσφέρουμε');
-  if(C.rating){document.getElementById('heroStars').innerHTML='★★★★★ <span>'+C.rating+(C.reviewsCount?(' · '+C.reviewsCount+' κριτικές'):'')+'</span>';}
-  if(C.photo){document.getElementById('hero').style.backgroundImage="url('"+C.photo+"')";}
+  set('heroSub',C.tagline);set('footName',C.name);set('footArea',C.area);set('footPhone',C.phone);
   [['navCall',tel],['heroCall',tel],['bandCall',tel],['barCall',tel]].forEach(([i,h])=>href(i,h));
   [['heroWa',waurl],['bandWa',waurl],['barWa',waurl]].forEach(([i,h])=>href(i,h));
   href('heroDir',dir);
+  if(C.photo)document.getElementById('heroBg').style.backgroundImage="url('"+C.photo+"')";
+  // hero stats
+  const hs=document.getElementById('hstats');const st=[];
+  if(C.rating)st.push(['★ '+C.rating.replace('★',''),'Αξιολόγηση']);
+  if(C.reviewsCount)st.push(['+'+C.reviewsCount,'Κριτικές']);
+  st.push(['24/7','Πάντα διαθέσιμοι']);
+  hs.innerHTML=st.map(s=>'<div><div class="n">'+s[0]+'</div><div class="l">'+s[1]+'</div></div>').join('');
   document.querySelector('#cAddr span').textContent=C.address||C.area;
   document.querySelector('#cPhone span').textContent=C.phone||'';
   document.getElementById('map').src='https://www.google.com/maps?q='+encodeURIComponent(C.mapsQuery||C.name+' '+C.area)+'&output=embed';
   // services
   const sv=document.getElementById('services');
-  (C.services||[]).forEach(s=>{const d=document.createElement('div');d.className='svc';
+  (C.services||[]).forEach(s=>{const d=document.createElement('div');d.className='svc reveal';
     d.innerHTML='<div class="ic">'+(s.ic||'⭐')+'</div><h3>'+s.t+'</h3>';sv.appendChild(d);});
-  // hours
-  const h=document.getElementById('hours');
-  if((C.hours||[]).length){C.hours.forEach(x=>{const d=document.createElement('div');d.className='hrow';
-    d.innerHTML='<b>'+x.day+'</b><span>'+x.hours+'</span>';h.appendChild(d);});}
-  else{h.innerHTML='<div class="hrow"><b>Καλέστε μας για ωράριο</b></div>';}
-  // reviews
-  const rv=document.getElementById('reviews');
-  if((C.reviews||[]).length){C.reviews.forEach(x=>{const d=document.createElement('div');d.className='rev';
-    d.innerHTML='<div class="st">'+'★'.repeat(x.stars||5)+'</div><p>"'+x.text+'"</p><b>— '+(x.name||'Πελάτης')+'</b>';rv.appendChild(d);});}
-  else{document.getElementById('revsec').style.display='none';}
-  // menu / τιμοκατάλογος
-  if((C.menu||[]).length){
-    document.getElementById('menusec').style.display='';
+  // menu
+  if((C.menu||[]).length){document.getElementById('menusec').style.display='';
     set('menuTitle',C.menuTitle);set('menuEye',C.menuEye||C.menuTitle);
     const mn=document.getElementById('menu');
     C.menu.forEach(m=>{const d=document.createElement('div');d.className='mitem';
-      d.innerHTML='<span class="mn">'+m.t+'</span><span class="mp">'+(m.price||'')+'</span>';mn.appendChild(d);});
-  }
-  // booking / contact form → WhatsApp στην επιχείρηση
+      d.innerHTML='<span class="mn">'+m.t+'</span><span class="dots"></span><span class="mp">'+(m.price||'')+'</span>';mn.appendChild(d);});}
+  // hours
+  const h=document.getElementById('hours');
+  if((C.hours||[]).length)C.hours.forEach(x=>{const d=document.createElement('div');d.className='hrow';
+    d.innerHTML='<b>'+x.day+'</b><span>'+x.hours+'</span>';h.appendChild(d);});
+  else h.innerHTML='<div class="hrow"><b>Καλέστε μας για ωράριο</b></div>';
+  // reviews
+  const rv=document.getElementById('reviews');
+  if((C.reviews||[]).length)C.reviews.forEach(x=>{const d=document.createElement('div');d.className='rev';
+    d.innerHTML='<div class="st">'+'★'.repeat(x.stars||5)+'</div><p>'+x.text+'</p><b>— '+(x.name||'Πελάτης')+'</b>';rv.appendChild(d);});
+  else document.getElementById('revsec').style.display='none';
+  // form
   set('formTitle',C.formTitle);set('formEye',C.formEye);
-  const fWhen=document.getElementById('fWhen');
-  if(C.formKind==='message'){fWhen.style.display='none';}else if(C.whenLabel){fWhen.placeholder=C.whenLabel;}
+  const fW=document.getElementById('fWhen');
+  if(C.formKind==='message')fW.style.display='none';else if(C.whenLabel)fW.placeholder=C.whenLabel;
   document.getElementById('fSend').addEventListener('click',()=>{
-    const n=document.getElementById('fName').value.trim();
-    const w=document.getElementById('fWhen').value.trim();
-    const m=document.getElementById('fMsg').value.trim();
-    const lines=[(C.formTitle||'Αίτημα')+' — '+C.name];
-    if(n)lines.push('Όνομα: '+n);
-    if(w&&C.formKind!=='message')lines.push((C.whenLabel||'Πότε')+': '+w);
-    if(m)lines.push('Μήνυμα: '+m);
-    location.href='https://wa.me/'+wa+'?text='+encodeURIComponent(lines.join('\n'));
+    const n=document.getElementById('fName').value.trim(),w=fW.value.trim(),m=document.getElementById('fMsg').value.trim();
+    const L=[(C.formTitle||'Αίτημα')+' — '+C.name];
+    if(n)L.push('Όνομα: '+n);if(w&&C.formKind!=='message')L.push((C.whenLabel||'Πότε')+': '+w);if(m)L.push('Μήνυμα: '+m);
+    location.href='https://wa.me/'+wa+'?text='+encodeURIComponent(L.join('\n'));
   });
+  // header scroll + reveal
+  addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('scrolled',scrollY>40));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
 </body>
